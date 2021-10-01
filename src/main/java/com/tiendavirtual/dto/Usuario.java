@@ -16,6 +16,7 @@ public class Usuario {
 		this.email = email;
 		this.nombreusuario = nombreusuario;
 	}
+	public Usuario() {}
 
 
 	public String getNombre() {

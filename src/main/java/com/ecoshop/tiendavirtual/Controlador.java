@@ -28,4 +28,19 @@ public class Controlador {
         return "Microservicio para modificar de usuario";
     }
     
+    @RequestMapping("/buscarUsuario")
+    public Usuario buscarUsuario(long cedula) {
+    	
+    	UsuarioDAO dao=new UsuarioDAO();
+    	Usuario user=dao.buscarUsuario(cedula);
+    	System.out.println(user.toString());
+        return user;
+    }
+    
+    @RequestMapping("/eliminarUsuario")
+    public String borrarUsuario(long cedula) {
+    	UsuarioDAO dao=new UsuarioDAO();
+    	dao.eliminarUsuario(cedula);
+    	return "Microservicio para borrar el usuario";
+    }
 }
