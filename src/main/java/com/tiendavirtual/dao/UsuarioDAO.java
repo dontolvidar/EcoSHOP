@@ -1,20 +1,15 @@
 package com.tiendavirtual.dao;
-
-import java.sql.CallableStatement;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.tiendavirtual.dto.Usuario;
 
 public class UsuarioDAO {
-	private Statement sentencia = null; //envia una sentencia
-    private ResultSet resultado = null;  //guarda informacion de una busqueda
-	private String nombre;
-	private String pass;
     
     
 	public void insertarUsuario(Usuario user) {
@@ -28,28 +23,33 @@ public class UsuarioDAO {
 		}
 	}
 
-	public Usuario buscarUsuario(long cedula) {
-        Usuario user = new Usuario();
+	public ArrayList<Usuario> buscarUsuario(long cedula) {
+        
         ConexionBD cnx=new ConexionBD();
         Connection cn = cnx.getConexionBD();
+        ArrayList<Usuario> array= new ArrayList<>();
         if (cn != null) {
             try {
             	
                 String atributos = "nombre,password,cedula_usuario,email_usuario,nombre_usuario";
-
-                String query = "SELECT " + atributos + " FROM usuarios "
-                        + "WHERE cedula_usuario=" + cedula;
-                
+            	String query="";
+                //por si hay espacio vacio simplemente muestra toda la base de datos
+            	if (!(cedula==-1))
+	                query = "SELECT " + atributos + " FROM usuarios "
+	                        + "WHERE cedula_usuario=" + cedula;
+                else
+                	query = "SELECT " + atributos + " FROM usuarios";
                 Statement sentencia = cn.createStatement();
                 ResultSet resultado = sentencia.executeQuery(query);
-                resultado.next();
-                
+                while(resultado.next())
+                {
+                Usuario user = new Usuario();
             	user.setNombre(resultado.getString(1)); //Desde 0 seria tomar el id
                 user.setPassword(resultado.getString(2));
                 user.setCedula(resultado.getLong(3));
                 user.setEmail(resultado.getString(4));
                 user.setNombreusuario(resultado.getString(5));
-
+                array.add(user);}
             } catch (SQLException e) {
             	System.out.println("Mensaje "+e);
             }
@@ -57,12 +57,12 @@ public class UsuarioDAO {
         } else {
             System.out.println("Error de conexión");
         }
-        return user;
+        
+        return array;
     }
 	
 
 	public void modificarUsuario(Usuario user) {
-        String response = "";
         ConexionBD cnx=new ConexionBD();
         Connection cn = cnx.getConexionBD();
         if (cn != null) {
@@ -74,18 +74,14 @@ public class UsuarioDAO {
                 PreparedStatement consultaDB = cn.prepareStatement(query);
                 consultaDB.execute();
                 consultaDB.close();
-                response = "Usuario modificado\n";
             } catch (SQLException e) {
-                response = "Error---" + e;
             }
         } else {
-            response = "Error de conexión";
         }
 
     }
 
 	public void eliminarUsuario(long cedula) {
-        String response = "";
         ConexionBD cnx=new ConexionBD();
         Connection cn = cnx.getConexionBD();
         if (cn != null) {
@@ -94,14 +90,12 @@ public class UsuarioDAO {
                 PreparedStatement consultaBD = cn.prepareStatement(query);
                 consultaBD.execute();
                 consultaBD.close();
-                response = "Se eliminó el usuario\n";
 
             } catch (Exception e) {
                 System.out.println("Error...." + e.getMessage());
             }
 
         } else {
-            response = "Error de conexión";
         }
     }
 

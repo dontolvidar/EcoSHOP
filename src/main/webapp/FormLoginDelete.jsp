@@ -13,7 +13,7 @@
 			var cedula = document.getElementById("txtCedu").value.trim();
 
 			var mensajero = new XMLHttpRequest();
-			var url = 'http://localhost:8080/eliminarUsuario';
+			var url = 'http://localhost:8080/EcoShop/eliminarUsuario';
 			var params = "cedula=" + cedula;
 			mensajero.open('POST', url, true);
 

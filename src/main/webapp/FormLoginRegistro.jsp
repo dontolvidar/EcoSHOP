@@ -17,7 +17,7 @@
 			var nombreusuario = document.getElementById("txtNombre").value.trim();
 
 			var mensajero = new XMLHttpRequest();
-			var url = 'http://localhost:8080/crearUsuario';
+			var url = 'http://localhost:8080/EcoShop/crearUsuario';
 			var params = "nombre=" + nombre + "&" + "password=" + password + "&" + "cedula=" + cedula + "&" + "email=" + email + "&" +"nombreusuario=" + nombreusuario;
 			mensajero.open('POST', url, true);
 

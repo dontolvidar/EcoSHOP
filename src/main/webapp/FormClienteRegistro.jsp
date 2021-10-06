@@ -17,7 +17,7 @@
 			var email = document.getElementById("txtEmail").value.trim();
 
 			var mensajero = new XMLHttpRequest();
-			var url = 'http://localhost:8080/crearCliente';
+			var url = 'http://localhost:8080/EcoShop/crearCliente';
 			var params = "cedula=" + cedula + "&" + "nombre=" + nombre + "&" +"direccion=" + direccion + "&" +
 			"telefono=" + telefono + "&" + "email=" + email;
 			mensajero.open('POST', url, true);
