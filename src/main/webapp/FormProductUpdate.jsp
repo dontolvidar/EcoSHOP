@@ -10,7 +10,7 @@
 		let formData = new FormData();
 		formData.append("file", fileupload.files[0]);
 		let response = await
-		fetch('/EcoShop/cargarProducto', {
+		fetch('/TiendaVirtualGrupo02Ecoshop/cargarProducto', {
 			method : "POST",
 			body : formData
 		});

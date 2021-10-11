@@ -17,7 +17,7 @@
 			var nombreusuario = document.getElementById("txtNombre").value.trim();
 
 			var mensajero = new XMLHttpRequest();
-			var url = 'http://localhost:8080/EcoShop/actualizarUsuario';
+			var url = '/TiendaVirtualGrupo02Ecoshop/actualizarUsuario';
 			var params = "nombre=" + nombre + "&" + "password=" + password + "&" + "cedula=" + cedula + "&" + "email=" + email + "&" +"nombreusuario=" + nombreusuario;
 			mensajero.open('POST', url, true);
 

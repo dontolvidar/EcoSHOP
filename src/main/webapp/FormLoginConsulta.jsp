@@ -12,7 +12,7 @@
 			cedula = -1;
 		}
 		var http = new XMLHttpRequest();
-		var url = 'http://localhost:8080/EcoShop/buscarUsuario';
+		var url = '/TiendaVirtualGrupo02Ecoshop/buscarUsuario';
 		var params = "cedula=" + cedula;
 		http.open('POST', url, true);
 

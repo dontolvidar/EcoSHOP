@@ -12,7 +12,7 @@
 			nit = "null";
 		}
 		var http = new XMLHttpRequest();
-		var url = 'http://localhost:8080/EcoShop/consultarProveedores';
+		var url = '/TiendaVirtualGrupo02Ecoshop/consultarProveedores';
 		var params = "nit=" + nit;
 		http.open('POST', url, true);
 

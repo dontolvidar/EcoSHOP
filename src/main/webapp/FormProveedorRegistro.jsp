@@ -37,7 +37,7 @@
 			var sitioweb = document.getElementById("txtSitioWeb").value.trim();
 
 			var http = new XMLHttpRequest();
-			var url = 'http://localhost:8080/EcoShop/registrarProveedor';
+			var url = '/TiendaVirtualGrupo02Ecoshop/registrarProveedor';
 			var params = "NIT=" + nit + "&" + "nombre=" + nombre + "&"
 					+ "direccion=" + direccion + "&" + "telefono=" + telefono
 					+ "&" + "email=" + email + "&" + "sitioweb=" + sitioweb;
