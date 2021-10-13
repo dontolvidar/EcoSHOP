@@ -14,9 +14,9 @@
 	//===================================== FUNCIONES PROPIAS =============================
 
 	function consultar(t) {
-		if (t == 1) {
+		if (t==1){
 			var tipo = "cliente";
-		} else if (t == 0) {
+		} else if (t==0){
 			var tipo = "producto";
 		}
 		var http = new XMLHttpRequest();
@@ -38,12 +38,12 @@
 				datos = datos.replace('[', '').replace(']', '');
 				var tokens = datos.split(',');
 				var tabla = [];
-				tabla.push([ "Item", "Total" ]);
+				tabla.push(["Item","Total"]);
 				for (var i = 0; i < tokens.length; i++) {
 					var tokens2 = tokens[i].split(';');
-					var reg = [];
-					reg.push(tokens2[0].replace('"', ''));
-					reg.push(parseInt(tokens2[1].replace('"', '')));
+					var reg=[];
+					reg.push(tokens2[0].replace('"',''));
+					reg.push(parseInt(tokens2[1].replace('"','')));
 					tabla.push(reg);
 				}
 				drawChart(tabla);
@@ -59,13 +59,13 @@
 				[ 'Mes', 'Sales', 'Expenses', 'Profit' ],
 				[ 'Enero', 1000, 400, 200 ], [ 'Febrero', 1170, 460, 250 ],
 				[ 'Marzo', 660, 1120, 300 ], [ 'Abril', 1030, 540, 350 ] ]);
-		 */
-		var data = google.visualization.arrayToDataTable(tabla);
-
+*/
+var data = google.visualization.arrayToDataTable(tabla);
+		
 		var options = {
 			chart : {
-				title : 'Reporte de ventas del 2021',
-				subtitle : 'Tienda Grupo 02 Ecoshop',
+				title : 'Reporte de ventas del 2020',
+				subtitle : 'Tienda Grupo 11 Rincón Hondo',
 			},
 			bars : 'horizontal' // Required for Material Bar Charts.
 		};

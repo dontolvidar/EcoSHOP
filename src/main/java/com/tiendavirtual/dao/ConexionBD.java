@@ -19,7 +19,8 @@ public class ConexionBD {
 	public Connection getConexionBD() {
 		Connection connection = null;//conexion base de datos
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			//Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("org.mariadb.jdbc.Driver");
 			connection = DriverManager.getConnection(url, login, passw);
 			if (connection != null) {
 				System.out.println("Conexion a base de datos " + bd + " OK\n");
