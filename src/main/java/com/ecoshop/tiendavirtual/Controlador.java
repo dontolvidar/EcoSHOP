@@ -16,13 +16,15 @@ import com.tiendavirtual.dao.ClienteDAO;
 import com.tiendavirtual.dao.ProductosDAO;
 import com.tiendavirtual.dao.ProveedorDAO;
 import com.tiendavirtual.dao.UsuarioDAO;
+import com.tiendavirtual.dao.VentasDAO;
 import com.tiendavirtual.dto.Cliente;
 import com.tiendavirtual.dto.Proveedor;
 import com.tiendavirtual.dto.Usuario;
 
 @RestController
 public class Controlador {
-    //usuario
+	
+	/*------------------------------------------- Usuarios --------------------------------------------------*/
 	
     @RequestMapping("/crearUsuario")
     public String insertarUsuario(Usuario user) {
@@ -57,7 +59,7 @@ public class Controlador {
     
     
     
-    //cliente
+    /*------------------------------------------- Clientes --------------------------------------------------*/
     @RequestMapping("/crearCliente")
     public String insertarCliente(Cliente client) {
     	ClienteDAO dao=new ClienteDAO();
@@ -65,8 +67,6 @@ public class Controlador {
     	
         return "Microservicio de insercion de cliente";//esto al final es un response
     }
-    
-    
     
     
     //proveedor
@@ -98,4 +98,14 @@ public class Controlador {
 		}
 		return ResponseEntity.ok("Archivo cargado con exito.");
 	}
+	
+	
+/*------------------------------------------- Ventas --------------------------------------------------*/
+	@RequestMapping("/consultarVentas")
+	public ArrayList<String> consultarVentas(String tipo) {		
+		VentasDAO dao = new VentasDAO();
+		return dao.consultarConsolidado(tipo);		
+	}
+	
+	
 }
