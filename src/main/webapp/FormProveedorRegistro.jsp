@@ -30,17 +30,14 @@
 		} else {
 			var nit = document.getElementById("txtNIT").value.trim();
 			var nombre = document.getElementById("txtNombre").value.trim();
-			var direccion = document.getElementById("txtDireccion").value
-					.trim();
+			var direccion = document.getElementById("txtDireccion").value.trim();
 			var telefono = document.getElementById("txtTelefono").value.trim();
 			var email = document.getElementById("txtEmail").value.trim();
 			var sitioweb = document.getElementById("txtSitioWeb").value.trim();
 
 			var http = new XMLHttpRequest();
 			var url = '/TiendaVirtualGrupo02Ecoshop/registrarProveedor';
-			var params = "NIT=" + nit + "&" + "nombre=" + nombre + "&"
-					+ "direccion=" + direccion + "&" + "telefono=" + telefono
-					+ "&" + "email=" + email + "&" + "sitioweb=" + sitioweb;
+			var params = "NIT=" + nit + "&" + "nombre=" + nombre + "&" + "direccion=" + direccion + "&" + "telefono=" + telefono+ "&" + "email=" + email + "&" + "sitioweb=" + sitioweb;
 			http.open('POST', url, true);
 
 			//Send the proper header information along with the request

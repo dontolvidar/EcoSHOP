@@ -38,7 +38,7 @@ public class ProveedorDAO {
 			ResultSet res = consulta.executeQuery(sql);
 
 			while (res.next()) {
-				Proveedor prov = new Proveedor(res.getString("NIT"), res.getString("nombre"),
+				Proveedor prov = new Proveedor(res.getLong("NIT"), res.getString("nombre"),
 						res.getString("direccion"), res.getString("telefono"), res.getString("email"),
 						res.getString("sitioweb"));
 				proveedores.add(prov);

@@ -9,7 +9,7 @@
 	google.charts.load('current', {
 		'packages' : [ 'bar' ]
 	});
-	google.charts.setOnLoadCallback(drawChart);
+	//google.charts.setOnLoadCallback(drawChart);
 
 	//===================================== FUNCIONES PROPIAS =============================
 
@@ -55,17 +55,13 @@
 	// ======================================= FIN DE FUNCIONES PROPIAS ===============================================
 
 	function drawChart(tabla) {
-		/*var data = google.visualization.arrayToDataTable([
-				[ 'Mes', 'Sales', 'Expenses', 'Profit' ],
-				[ 'Enero', 1000, 400, 200 ], [ 'Febrero', 1170, 460, 250 ],
-				[ 'Marzo', 660, 1120, 300 ], [ 'Abril', 1030, 540, 350 ] ]);
-*/
-var data = google.visualization.arrayToDataTable(tabla);
+		
+		var data = google.visualization.arrayToDataTable(tabla);
 		
 		var options = {
 			chart : {
-				title : 'Reporte de ventas del 2020',
-				subtitle : 'Tienda Grupo 11 Rincón Hondo',
+				title : 'Reporte de ventas de ropa 2021',
+				subtitle : 'Tienda EcoShop Store Grupo 02',
 			},
 			bars : 'horizontal' // Required for Material Bar Charts.
 		};
@@ -78,12 +74,13 @@ var data = google.visualization.arrayToDataTable(tabla);
 </script>
 </head>
 <body>
+	<button onclick="consultar(0)">Consultar por producto</button>
+	<button onclick="consultar(1)">Consultar por cliente</button>
 	<br>
 	<br>
 	<div id="barchart_material" style="width: 900px; height: 500px;"></div>
 	<br>
 	<br>
-	<button onclick="consultar(0)">Consultar por producto</button>
-	<button onclick="consultar(1)">Consultar por cliente</button>
+	
 </body>
 </html>

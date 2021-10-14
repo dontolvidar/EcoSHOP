@@ -69,7 +69,7 @@ public class Controlador {
     }
     
     
-    //proveedor
+    /*------------------------------------------- Proveedor --------------------------------------------------*/
     @RequestMapping("/registrarProveedor")
 	public String registrarProveedor(Proveedor p) {		
 		ProveedorDAO dao = new ProveedorDAO();
