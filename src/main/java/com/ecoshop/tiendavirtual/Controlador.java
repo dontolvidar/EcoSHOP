@@ -89,7 +89,7 @@ public class Controlador {
 	public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) {
 		String fileName = file.getOriginalFilename();
 		try {
-			File fl = new File("C:\\WebDevelopEclipseAndTomcat\\MisProyectos\\ArchivosRecibidos\\" + fileName);
+			File fl = new File("C:\\ArchivosRecibidos\\" + fileName);
 			file.transferTo(fl);
 			ProductosDAO dao = new ProductosDAO();
 			dao.FileUpload(fl);

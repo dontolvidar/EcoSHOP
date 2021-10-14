@@ -16,8 +16,8 @@ public class ProductosDAO {
 		ConexionBD conex = new ConexionBD();
 		try {
 			Statement estatuto = conex.getConexionBD().createStatement();
-			estatuto.executeUpdate("INSERT INTO productos(codigo_producto,ivacompra,nitproveedor,nombre_producto,precio_compra,precio_venta) VALUES (" + prov.getCodigo_producto() + "," + prov.getIvacompra()
-					+ ",'" + prov.getNitproveedor() + "','" + prov.getNombre_producto() + "'," + prov.getPrecio_compra()+ ","+prov.getPrecio_venta()+ ")");
+			estatuto.executeUpdate("INSERT INTO productos(codigo_producto,ivacompra,nombre_producto,precio_compra,precio_venta,proveedores_NIT) VALUES (" + prov.getCodigo_producto() + "," + prov.getIvacompra()
+					+ ",'" + prov.getNombre_producto() + "','" + prov.getPrecio_compra() + "'," + prov.getPrecio_venta()+ ","+prov.getProovedores_NIT()+ ")");
 			estatuto.close();
 			//conex.desconectar();
 
@@ -34,7 +34,7 @@ public class ProductosDAO {
               while ((linea = br.readLine()) != null) {
                   String[] tokens = linea.split(",");
                   //(long codigo_producto, double ivacompra, double precio_compra, double precio_venta, String nitproveedor, String nombre_producto)
-                  Producto p = new Producto(Long.parseLong(tokens[0]),Float.parseFloat(tokens[1]) ,(tokens[2]),(tokens[3]), Float.parseFloat(tokens[4]), Float.parseFloat(tokens[5]));
+                  Producto p = new Producto(Long.parseLong(tokens[0]),Float.parseFloat(tokens[1]) ,(tokens[2]),Float.parseFloat(tokens[3]), Float.parseFloat(tokens[4]), Long.parseLong(tokens[5]));
                   insertarProducto(p);
               }
               br.close();

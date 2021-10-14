@@ -2,14 +2,29 @@ package com.tiendavirtual.dto;
 
 public class Ventas {
 
-	private String codigo_producto;
+	private int idventa;
+	private long codigo_producto_fk;
 	private int cantidad;
-	private String NIT_cliente;
-	public String getCodigo_producto() {
-		return codigo_producto;
+	private long cedula_cliente_fk,cedula_usuario_fk;
+	public Ventas(int idventa, long codigo_producto_fk, int cantidad, long cedula_cliente_fk, long cedula_usuario_fk) {
+		super();
+		this.idventa = idventa;
+		this.codigo_producto_fk = codigo_producto_fk;
+		this.cantidad = cantidad;
+		this.cedula_cliente_fk = cedula_cliente_fk;
+		this.cedula_usuario_fk = cedula_usuario_fk;
 	}
-	public void setCodigo_producto(String codigo_producto) {
-		this.codigo_producto = codigo_producto;
+	public int getIdventa() {
+		return idventa;
+	}
+	public void setIdventa(int idventa) {
+		this.idventa = idventa;
+	}
+	public long getCodigo_producto_fk() {
+		return codigo_producto_fk;
+	}
+	public void setCodigo_producto_fk(long codigo_producto_fk) {
+		this.codigo_producto_fk = codigo_producto_fk;
 	}
 	public int getCantidad() {
 		return cantidad;
@@ -17,17 +32,22 @@ public class Ventas {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-	public String getNIT_cliente() {
-		return NIT_cliente;
+	public long getCedula_cliente_fk() {
+		return cedula_cliente_fk;
 	}
-	public void setNIT_cliente(String nIT_cliente) {
-		NIT_cliente = nIT_cliente;
+	public void setCedula_cliente_fk(long cedula_cliente_fk) {
+		this.cedula_cliente_fk = cedula_cliente_fk;
 	}
-	public Ventas(String codigo_producto, int cantidad, String nIT_cliente) {
-		super();
-		this.codigo_producto = codigo_producto;
-		this.cantidad = cantidad;
-		NIT_cliente = nIT_cliente;
+	public long getCedula_usuario_fk() {
+		return cedula_usuario_fk;
+	}
+	public void setCedula_usuario_fk(long cedula_usuario_fk) {
+		this.cedula_usuario_fk = cedula_usuario_fk;
+	}
+	@Override
+	public String toString() {
+		return "Ventas [idventa=" + idventa + ", codigo_producto_fk=" + codigo_producto_fk + ", cantidad=" + cantidad
+				+ ", cedula_cliente_fk=" + cedula_cliente_fk + ", cedula_usuario_fk=" + cedula_usuario_fk + "]";
 	}
 	
 	

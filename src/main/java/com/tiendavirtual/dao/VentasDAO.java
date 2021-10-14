@@ -16,8 +16,8 @@ public class VentasDAO {
 		ConexionBD conex = new ConexionBD();
 		try {
 			Statement estatuto = conex.getConexionBD().createStatement();
-			estatuto.executeUpdate("INSERT INTO ventas(codigo_producto, cantidad, NIT_cliente) VALUES ('" + ven.getCodigo_producto() + "', " + ven.getCantidad()
-					+ ", '" + ven.getNIT_cliente() +"')");
+			estatuto.executeUpdate("INSERT INTO ventas(codigo_producto_fk, cantidad, cedula_cliente_fk,cedula_usuario_fk) VALUES (" + ven.getCodigo_producto_fk() + ", " + ven.getCantidad()
+					+ "," + ven.getCedula_cliente_fk() +","+ven.getCedula_usuario_fk()+")");
 			estatuto.close();
 			
 
@@ -32,16 +32,16 @@ public class VentasDAO {
 
 		String sql = "";
 		if (tipo.trim().equals("producto")) {
-			sql = "SELECT codigo_producto AS Item, SUM(cantidad) AS Unidades\r\n"
+			sql = "SELECT codigo_producto_fk AS Item, SUM(cantidad) AS Unidades\r\n"
 					+ "FROM ventas\r\n"
-					+ "GROUP BY codigo_producto\r\n"
-					+ "ORDER BY codigo_producto;";
+					+ "GROUP BY codigo_producto_fk\r\n"
+					+ "ORDER BY codigo_producto_fk;";
 			
 		} else if (tipo.trim().equals("cliente")){
-			sql = "SELECT NIT_cliente AS Item, SUM(cantidad) AS Unidades\r\n"
+			sql = "SELECT cedula_cliente_fk AS Item, SUM(cantidad) AS Unidades\r\n"
 					+ "FROM ventas\r\n"
-					+ "GROUP BY NIT_cliente\r\n"
-					+ "ORDER BY NIT_cliente;";
+					+ "GROUP BY cedula_cliente_fk\r\n"
+					+ "ORDER BY cedula_cliente_fk;";
 		}
 
 		try {
